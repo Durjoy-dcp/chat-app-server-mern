@@ -5,7 +5,7 @@ const { chats } = require("./data/data");
 require("dotenv").config();
 const port = process.env.PORT || 4000;
 app.use(cors());
-app.get("/server", (req, res) => res.send(chats));
+app.get("/api/chat", (req, res) => res.send(chats));
 app.get("/api/chat/:id", (req, res) => {
   res.send(chats.find((chat) => chat._id == req.params.id));
 });
