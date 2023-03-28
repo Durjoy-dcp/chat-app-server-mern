@@ -3,15 +3,10 @@ var cors = require("cors");
 var app = express();
 const { chats } = require("./data/data");
 const connectDB = require("./config/db");
+const userRouter = require("./routes/userRoutes");
 require("dotenv").config();
 connectDB();
 const port = process.env.PORT || 4000;
 app.use(cors());
-app.get("/api/chat", (req, res) => res.send(chats));
-app.get("/api/chat/:id", (req, res) => {
-  res.send(chats.find((chat) => chat._id == req.params.id));
-});
 
-app.listen(port, function () {
-  console.log(`CORS-enabled web server listening on port ${port}`);
-});
+app.use("api/user/", userRouter);
