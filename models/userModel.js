@@ -8,6 +8,7 @@ const userModel = mongoose.Schema(
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     password: {
       type: String,
@@ -15,7 +16,7 @@ const userModel = mongoose.Schema(
     },
     picture: {
       type: String,
-      required: true,
+
       default: "https://i.ibb.co/sWgFNk2/2023-03-27-15-43.png",
     },
   },
